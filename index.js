@@ -15,5 +15,6 @@ module.exports = {
   Source,
   Sink,
   Duplex,
-  KeyPair
+  KeyPair,
+  _
 }
