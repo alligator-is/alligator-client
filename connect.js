@@ -8,8 +8,8 @@ const Timeout = require('./timeout')
 
 module.exports = (...args)=>{
   let cid = 0
-  return  function connect(addresses,_local,params,cb,done){
-    const connections={}
+  const connections={}
+  return  function connect(addresses,_local,params,cb,done,_connections){
 
     if (_.isString(addresses)) addresses = [addresses]
     
@@ -47,6 +47,7 @@ module.exports = (...args)=>{
       const id = url.parse(addr).auth
       for (let k in connections) {
         let c = connections[k]
+        console.log("findConnection")
         if (c.peerID === id) return cb(null, c)
       }
 
@@ -92,4 +93,3 @@ module.exports = (...args)=>{
     
 }(...args)
 }
-
