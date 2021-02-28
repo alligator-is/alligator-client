@@ -47,7 +47,6 @@ module.exports = (...args)=>{
       const id = url.parse(addr).auth
       for (let k in connections) {
         let c = connections[k]
-        console.log("findConnection")
         if (c.peerID === id) return cb(null, c)
       }
 
